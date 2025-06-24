@@ -66,7 +66,7 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#contact" className="font-Ovo">
-              Contact me
+              Contact me me
             </a>
           </li>
         </ul>
