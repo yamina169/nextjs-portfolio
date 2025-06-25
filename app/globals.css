@@ -1,4 +1,53 @@
+/* styles/globals.css */
+
+/* Nouvelle directive de Tailwind v4 */
 @import "tailwindcss";
 
-* {
+/* === Couleurs personnalisées === */
+.lightHover {
+  &:hover {
+    background-color: #fcf4ff;
+  }
+}
+
+.darkHover {
+  &:hover {
+    background-color: #2a004a;
+  }
+}
+
+.bg-dark-theme {
+  background-color: #11001f;
+}
+
+/* === Fonts personnalisées === */
+.font-outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.font-ovo {
+  font-family: "Ovo", serif;
+}
+
+/* === Ombres personnalisées === */
+.shadow-black {
+  &:hover {
+    box-shadow: 4px 4px 0 #000;
+  }
+}
+
+.shadow-white {
+  &:hover {
+    box-shadow: 4px 4px 0 #fff;
+  }
+}
+
+.grid-auto-columns {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(100px, 15vw, 200px), 1fr)
+  );
+
+  overflow: hidden; /* Cache le contenu qui dépasse */
+  text-overflow: ellipsis;
 }
