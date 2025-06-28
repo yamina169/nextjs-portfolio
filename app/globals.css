@@ -1,157 +1,136 @@
-/* styles/globals.css */
-
-/* Nouvelle directive Tailwind v4 */
 @import "tailwindcss";
 
-/* === Couleurs personnalisées === */
-.lightHover {
-  &:hover {
-    background-color: #fcf4ff;
-  }
-}
-
-.darkHover {
-  &:hover {
-    background-color: #3b0270; /* un violet plus doux et chaud */
-  }
-}
-
-.bg-dark-theme {
-  background-color: #120a2f; /* un violet très foncé, moins dur que #11001f */
-}
-
 /* === Fonts personnalisées === */
-.font-outfit {
-  font-family: "Outfit", sans-serif;
-}
-
 .font-ovo {
   font-family: "Ovo", serif;
 }
 
-/* === Ombres personnalisées === */
-.shadow-black {
-  &:hover {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
-  }
-}
+/* ========================================================================= */
+/*                              🌞 LIGHT MODE                               */
+/* ========================================================================= */
 
-.shadow-white {
-  &:hover {
-    box-shadow: 4px 4px 8px rgba(255, 255, 255, 0.6);
-  }
-}
-
-/* === Grille auto-columns === */
-.grid-auto-columns {
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(clamp(100px, 15vw, 200px), 1fr)
-  );
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* === Light mode (par défaut) === */
 body {
   background-color: #fff;
   color: #111;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* === Dark mode activé === */
+/* Hover navbar links en light mode */
+nav ul a:hover {
+  color: #db2777;
+  border-radius: 0.25rem;
+}
+
+/* Hover pour bouton navbar en light mode */
+.navbar-btn:hover {
+  color: #db2777;
+  border: none;
+}
+
+/* ========================================================================= */
+/*                              🌚 DARK MODE                                */
+/* ========================================================================= */
+
 body.dark {
-  background-color: #120a2f;
-  color: #e5e7eb; /* gris clair pour moins de contraste agressif */
+  background-color: hsl(222.2, 84%, 4.9%);
+  color: #f172a0;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Titres, textes avec font-ovo dans dark mode */
 body.dark .font-ovo {
-  color: #d1d5db; /* gris clair doux */
+  color: #f5b0cd;
 }
 
-/* Liens en dark mode */
 body.dark a {
-  color: #a78bfa; /* violet clair agréable */
-  transition: color 0.3s ease;
+  color: #f172a0;
 }
+
 body.dark a:hover {
-  color: #8b5cf6; /* violet un peu plus saturé au hover */
+  color: #ff94c4;
   text-decoration: underline;
 }
 
-/* Hover personnalisés en dark mode */
-body.dark .darkHover:hover {
-  background-color: #4c1d95; /* violet plus doux et lumineux */
-}
-
-/* Navbar en dark mode */
 body.dark nav {
-  background-color: rgba(24, 17, 54, 0.95);
+  background-color: hsl(222.2, 84%, 4.9%);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   backdrop-filter: saturate(180%) blur(10px);
-  border-bottom: 1px solid rgba(200, 180, 255, 0.2);
+  border-bottom: 1px solid rgba(241, 114, 160, 0.2);
 }
 
-/* Bordures en dark mode */
-body.dark .border-gray-500 {
-  border-color: #7c3aed; /* violet modéré */
-}
-
-/* Boutons et inputs en dark mode */
 body.dark button,
 body.dark input,
 body.dark select,
 body.dark textarea {
-  background-color: #1e1b4b;
-  color: #ddd;
-  border: 1px solid #5b21b6;
+  background-color: #080817;
+  color: #fff;
+  border: 1px solid hsl(217.2, 32.6%, 17.5%);
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease;
 }
+
 body.dark button:hover,
 body.dark input:hover,
 body.dark select:hover,
 body.dark textarea:hover {
-  background-color: #3c278f;
-  border-color: #8b5cf6;
+  background-color: hsl(217.2, 91.2%, 59.8%);
+  border-color: #f172a0;
   color: white;
   cursor: pointer;
 }
 
-/* Scrollbar custom (optionnel) */
 body.dark::-webkit-scrollbar {
   width: 8px;
 }
+
 body.dark::-webkit-scrollbar-track {
-  background: #120a2f;
-}
-body.dark::-webkit-scrollbar-thumb {
-  background-color: #6b21a8;
-  border-radius: 10px;
-  border: 2px solid #120a2f;
+  background: hsl(222.2, 84%, 4.9%);
 }
 
-/* Amélioration des contrastes pour les cartes, sections */
+body.dark::-webkit-scrollbar-thumb {
+  background-color: hsl(217.2, 91.2%, 59.8%);
+  border-radius: 10px;
+  border: 2px solid hsl(222.2, 84%, 4.9%);
+}
+
 body.dark .card,
 body.dark section {
-  background-color: rgba(31, 27, 70, 0.8);
-  box-shadow: 0 0 15px rgba(140, 108, 255, 0.2);
+  background-color: hsl(222.2, 84%, 6%);
+  box-shadow: 0 0 15px rgba(241, 114, 160, 0.15);
   border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
-}
-body.dark .card:hover,
-body.dark section:hover {
-  background-color: rgba(58, 48, 126, 0.95);
 }
 
-/* Ajustements typo */
+body.dark .card:hover,
+body.dark section:hover {
+  background-color: hsl(222.2, 84%, 8%);
+}
+
 body.dark h1,
 body.dark h2,
 body.dark h3,
 body.dark h4 {
-  color: #ddd;
-  text-shadow: 0 0 5px rgba(167, 139, 250, 0.5);
+  color: #f172a0;
+  text-shadow: 0 0 5px rgba(241, 114, 160, 0.4);
+}
+
+/* Hover navbar links en dark mode */
+body.dark nav ul a:hover {
+  color: white;
+  background-color: hsl(217.2, 91.2%, 59.8%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Hover pour bouton navbar en dark mode */
+body.dark .navbar-btn:hover {
+  background-color: hsl(217.2, 91.2%, 59.8%);
+  color: white;
+}
+
+.grid-auto-columns {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(100px, 15vw, 200px), 1fr)
+  );
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

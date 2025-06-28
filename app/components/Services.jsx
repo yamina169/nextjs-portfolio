@@ -1,74 +1,38 @@
 import React from "react";
-import Image from "next/image";
+import { skillsData } from "@/assets/assets";
 
-import { assets, serviceData } from "@/assets/assets";
 const Services = () => {
   return (
-    <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg font-ovo">What I offer</h4>
-      <h2 className="text-center text-5xl font-ovo">My Services</h2>
+    <section
+      id="services"
+      className="w-full px-[8%] py-12 scroll-mt-20 bg-white dark:bg-[#0b0b17] transition-all"
+    >
+      <h2 className="text-center text-4xl md:text-3xl   sm:text-6xl lg:text-[50px] font-extrabold leading-tight font-ovo text-gray-900font-ovo text-gray-800 dark:text-pink-300 ">
+        Skills
+      </h2>
 
-      <p className="text-center max-w-2x1 mx-auto mt-5 mb-12 font-ovo">
-        I am a frontend developer from California, USA with 10 years of
-        experience in multiple companies like Microsoft, Tesla and Apple.
+      <p className="text-center max-w-xl mx-auto mt-2 mb-5 text-sm text-gray-600 dark:text-gray-300 font-ovo">
+        I've worked with a range of technologies in the web development world,
+        from frontend to backend and everything in between.
       </p>
-      <div className="grid grid-auto-columns gap-6 my-10">
-        {serviceData.map(({ icon, title, description, link }, index) => (
+
+      <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        {skillsData.map(({ title, icon: Icon, color }, index) => (
           <div
             key={index}
-            className="border lightHover shadow-black border-gray-400 rounded-lg px-8 py-12
-            cursor-pointer 
-      hover:-translate-y-1 duration-500"
+            className="group bg-white dark:bg-[#111827]  hover:bg-[#fcf4ff] rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-4 shadow-sm hover:shadow-md hover:-translate-y-1 transform transition duration-300 flex flex-col items-center text-center"
           >
-            <Image src={icon} alt=" " className="w-10" />
-            <h3 className="text-lg my-4 text-gray-700">{title}</h3>
-            <p className="text-sm text-gray-600 leading-5">{description}</p>
-            <a href={link} className="flex items-center gap-2 text-sm mt-5">
-              Read more{" "}
-              <Image alt=" " src={assets.right_arrow} className="w-4" />
-            </a>
+            <div className="w-10 h-10 flex items-center justify-center rounded-full dark:bg-gray-800 mb-2">
+              <Icon style={{ color }} className="text-xl sm:text-5xl" />
+            </div>
+            <h3 className="text-sm sm:text-base font-medium text-gray-800 dark:text-pink-200">
+              {title}
+            </h3>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
 export default Services;
-/*import React from "react";
-import Image from "next/image";
-import { assets, serviceData } from "@/assets/assets";
-const Services = () => {
-  return (
-    <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg font-ovo">What I offer</h4>
-      <h2 className="text-center text-5x1 font-ovo">My Services</h2>
-
-      <p className="text-center max-w-2x1 mx-auto mt-5 mb-12 font-ovo">
-        I am a frontend developer from California, USA with 10 years of
-        experience in multiple companies like Microsoft, Tesla and Apple.
-      </p>
-      <div className="grid grid-cols-4 gap-6 my-10">
-        {serviceData.map(({ icon, title, description, link }, index) => (
-          <div
-            key={index}
-            className="border border-gray-400 rounded-lg px-8 py-12
-      shadow hover:shadow-black hover:bg-[#fcf4ff] cursor-pointer 
-      hover:-translate-y-1 duration-500"
-          >
-            <Image src={icon} alt=" " className="w-10" />
-            <h3 className="text-lg my-4 text-gray-700">{title}</h3>
-            <p className="text-sm text-gray-600 leading-5">{description}</p>
-            <a href={link} className="flex items-center gap-2 text-sm mt-5">
-              Read more{" "}
-              <Image alt=" " src={assets.right_arrow} className="w-4" />
-            </a>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default Services;
- */

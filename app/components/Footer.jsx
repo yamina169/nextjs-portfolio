@@ -1,67 +1,63 @@
 import React from "react";
-import Image from "next/image"; // Make sure to import Image from next/image
+import Image from "next/image";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { assets } from "@/assets/assets";
 
-const Footer = () => {
+const Footer = ({ darkMode }) => {
   return (
-    <div className="mt-20">
-      <div className="text-center">
-        <Image
-          src={assets.logo}
-          alt="Company logo"
-          className="w-36 mx-auto mb-2"
-          width={144}
-          height={144}
-        />
+    <footer className="bg-gray-100 dark:bg-gray-900 px-6 py-10 sm:px-12 lg:px-[12%]">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-6">
+        {/* Left: Logo + Text */}
+        <div className="text-center md:text-left">
+          <div className="flex justify-center md:justify-start mb-2">
+            <Image
+              src={darkMode ? assets.logo_white : assets.logo}
+              alt="Logo"
+              width={100} // largeur réelle
+              height={40}
+              className="object-contain"
+              priority
+            />
+          </div>
+          <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md">
+            Building elegant digital solutions with a focus on user experience
+            and technical excellence.
+          </p>
+        </div>
 
-        <div className="w-max flex items-center gap-2 mx-auto">
-          <Image
-            src={assets.mail_icon}
-            alt="Email icon"
-            className="w-6"
-            width={24}
-            height={24}
-          />
-          greatstackdev@gmail.com
+        {/* Right: Icons + Copyright */}
+        <div className="text-center md:text-right space-y-3">
+          <div className="flex justify-center md:justify-end gap-5 text-gray-600 dark:text-gray-400">
+            <a
+              href="https://github.com/greatstackdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 transition"
+            >
+              <FaGithub className="w-5 h-5" />
+            </a>
+            <a
+              href="https://linkedin.com/in/greatstackdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 transition"
+            >
+              <FaLinkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="mailto:rezguiyamina1692001@gmail.com"
+              className="hover:text-pink-500 transition"
+            >
+              <EnvelopeIcon className="w-5 h-5" />
+            </a>
+          </div>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            © 2025 Yamina Rezgui | Built with React and Tailwind
+          </p>
         </div>
       </div>
-
-      <div className="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
-        <p>© 2025 William Mark. All rights reserved.</p>
-        <ul className="flex items-center gap-10 justify-center mt-4 sm:mt-0">
-          <li>
-            <a
-              target="_blank"
-              href="https://github.com/greatstackdev"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              GitHub
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://linkedin.com/in/greatstackdev"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://twitter.com/greatstackdev"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              Twitter
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    </footer>
   );
 };
 

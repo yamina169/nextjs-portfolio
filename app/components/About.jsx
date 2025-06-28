@@ -1,49 +1,81 @@
 import React from "react";
 import Image from "next/image";
-import { assets, infoList, toolsData } from "@/assets/assets";
+import { infoList, assets } from "@/assets/assets";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGraduationCap,
+  faCertificate,
+} from "@fortawesome/free-solid-svg-icons";
 
 const About = () => {
+  const renderIcon = (title) => {
+    switch (title) {
+      case "Education":
+        return (
+          <FontAwesomeIcon
+            icon={faGraduationCap}
+            className="w-7 h-7 mt-3 text-gray-700 dark:text-pink-300"
+          />
+        );
+      case "Certifications":
+        return (
+          <FontAwesomeIcon
+            icon={faCertificate}
+            className="w-7 h-7 mt-3 text-gray-700 dark:text-pink-300"
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div id="about" className="  w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg font-ovo">Introduction</h4>
-      <h2 className="text-center text-5xl font-ovo">About me</h2>
-      <div className="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
-        <div className="w-64 sm:w-80 rounded-3xl max-w-none">
+    <div
+      id="about"
+      className="pt-10 w-full px-4 sm:px-8 md:px-16 lg:px-[12%] py-10 scroll-mt-20 "
+    >
+      <h2 className="text-center  text-4xl sm:text-6xl lg:text-[56px] font-extrabold leading-tight font-ovo text-gray-900 mb-10">
+        About me
+      </h2>
+      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="w-48 sm:w-64 md:w-72 lg:w-80 rounded-3xl flex-shrink-0">
           <Image
             src={assets.user_image}
             alt="user"
-            className="w-full rounded-3xl"
+            className="w-full h-auto rounded-3xl object-cover"
+            priority
           />
         </div>
-        <div className="flex-1">
-          <p className="mb-10 max-w-2xl font-ovo">
-            I am an experienced Frontend Developer with over a decade of
-            professional expertise in the field. Throughout my career, I have
-            had the privilege of collaborating with prestigious organizations,
-            contributing to their success and growth.
+        <div className="flex-1 max-w-full lg:max-w-none">
+          <p className="mb-8 max-w-full sm:max-w-xl md:max-w-2xl font-ovo text-base sm:text-lg leading-relaxed">
+            Software engineering student with a passion for creating innovative
+            solutions. Specializing in full-stack development, I combine
+            technical expertise with creative problem-solving to build
+            user-centric applications.
           </p>
-          <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
-            {infoList.map(({ icon, iconDark, title, description }, index) => (
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6 max-w-full sm:max-w-3xl">
+            {infoList.map(({ title, description }, index) => (
               <li
-                className=" border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer 
+                key={index}
+                className="bg-gray-50 dark:bg-zinc-900 rounded-xl p-6 hover:bg-[#fcf4ff] dark:hover:bg-pink-950 cursor-pointer hover:-translate-y-1 duration-500 transition shadow-md"
+              >
+                {renderIcon(title)}
+                <h3 className="my-4 font-semibold text-gray-700 dark:text-pink-200">
+                  {title}
+                </h3>
 
-                hover:-translate-y-1 duration-500 transition   lightHover shadow-black"
-                key={index}
-              >
-                <Image src={icon} alt={title} className="w-7 mt-3" />
-                <h3 className="my-4 font-semibold text-gray-700">{title}</h3>
-                <p className="text-gray-600 text-sm">{description}</p>
-              </li>
-            ))}
-          </ul>
-          <h4 className="my-6 text-gray-700 font-ovo"> Tools I use</h4>
-          <ul className="flex items-center gap-3 sm:gap-5">
-            {toolsData.map((tool, index) => (
-              <li
-                className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500 "
-                key={index}
-              >
-                <Image src={tool} alt="Tool" className="w-5 sm:w-7" />
+                {title === "Certifications" ? (
+                  <ul className="list-disc list-inside text-gray-600 dark:text-pink-100 text-sm space-y-1">
+                    {description.split("\n").map((line, idx) => (
+                      <li key={idx}>{line}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-600 dark:text-pink-100 text-sm">
+                    {description}
+                  </p>
+                )}
               </li>
             ))}
           </ul>

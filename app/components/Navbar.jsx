@@ -57,14 +57,8 @@ const Navbar = () => {
 
   return (
     <>
-      {!darkMode && (
-        <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
-          <Image src={assets.header_bg_color} alt="" className="w-full" />
-        </div>
-      )}
-
       <nav
-        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${
+        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50  ${
           darkMode
             ? "bg-[#1c1133] bg-opacity-90 backdrop-blur-lg shadow-lg" // Fond sombre quand dark mode actif
             : isScroll
@@ -74,24 +68,24 @@ const Navbar = () => {
       >
         <a href="#top">
           <Image
-            src={assets.logo}
-            className="w-28 cursor-pointer mr-14"
+            src={darkMode ? assets.logo_white : assets.logo}
+            className="w-36 cursor-pointer mr-14" // taille agrandie (144px)
             alt="Logo"
-            width={112}
-            height={40}
+            width={180} // largeur réelle
+            height={60} // hauteur réelle
           />
         </a>
         <ul
-          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3
-            ${
-              isScroll
-                ? darkMode
-                  ? "bg-[#2c1d55] bg-opacity-90 shadow-lg"
-                  : ""
-                : darkMode
-                ? "bg-transparent"
-                : "bg-white shadow-sm bg-opacity-50"
-            }
+          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 text-sm md:text-base lg:text-lg
+  ${
+    isScroll
+      ? darkMode
+        ? "bg-[#2c1d55] bg-opacity-90 shadow-lg"
+        : ""
+      : darkMode
+      ? "bg-transparent"
+      : "bg-white shadow-sm bg-opacity-50"
+  }
           `}
         >
           <li>
@@ -106,51 +100,58 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#services" className="font-ovo">
-              Services
+              Skills
             </a>
           </li>
           <li>
             <a href="#work" className="font-ovo">
-              My work
+              Projects
             </a>
           </li>
           <li>
             <a href="#contact" className="font-ovo">
-              Contact me
+              Contact
             </a>
           </li>
         </ul>
         <div className="flex items-center gap-4">
-          <button onClick={toggleDarkMode} aria-label="Toggle Dark Mode">
+          {/* Bouton Moon design comme nav */}
+          <button
+            onClick={toggleDarkMode}
+            aria-label="Toggle Dark Mode"
+            className="border border-gray-300 dark:border-gray-500 rounded-full px-3 py-2 bg-white bg-opacity-50 dark:bg-transparent shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+          >
             <Image
               src={darkMode ? assets.sun_icon : assets.moon_icon}
               alt={darkMode ? "Light mode" : "Dark mode"}
-              className="w-6"
+              className="w-5 h-5" // plus de hover, plus de filter
             />
           </button>
 
+          {/* Bouton Resume stylé comme nav */}
           <a
-            href="#contact"
-            className="font-ovo hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4"
+            href="/nextjs-portfolio/public/sample-resume.pdf"
+            download
+            className="font-ovo inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-300 dark:border-gray-500 bg-white bg-opacity-50 dark:bg-transparent shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all text-sm md:text-base lg:text-lg"
           >
-            Contact
+            Resume
             <Image
-              src={assets.arrow_icon}
-              className="w-3"
-              alt="Arrow Icon"
-              width={12}
-              height={12}
+              src={assets.download_icon}
+              alt="Download icon"
+              className="w-4 h-4"
             />
           </a>
+
+          {/* Bouton Menu mobile */}
           <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={assets.menu_black} alt="" className="w-6" />
+            <Image src={assets.menu_black} alt="Menu" className="w-6" />
           </button>
         </div>
 
         {/* Menu mobile */}
         <ul
           ref={sideMenuRef}
-          className={`flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen transition-transform duration-500
+          className={`flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen transition-transform 
             ${darkMode ? "bg-[#1c1133]" : "bg-rose-50"}
           `}
           style={{ transform: "translateX(16rem)" }}
@@ -163,7 +164,7 @@ const Navbar = () => {
             />
           </div>
           <li>
-            <a href="#top" className="font-ovo" onClick={closeMenu}>
+            <a href="#header" className="font-ovo" onClick={closeMenu}>
               Home
             </a>
           </li>
@@ -174,7 +175,7 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#services" className="font-ovo" onClick={closeMenu}>
-              Services
+              Skills
             </a>
           </li>
           <li>
