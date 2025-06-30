@@ -24,9 +24,9 @@ const Contact = () => {
   }, [result]);
 
   const getToastColor = () => {
-    if (result.includes("Sending")) return "bg-gray-500"; // gris
-    if (result.includes("successfully")) return "bg-green-600"; // vert
-    if (result.includes("❌")) return "bg-red-600"; // rouge
+    if (result.includes("Sending")) return "bg-gray-500";
+    if (result.includes("successfully")) return "bg-green-600";
+    if (result.includes("❌")) return "bg-red-600";
     return "bg-gray-500";
   };
 
@@ -93,9 +93,8 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className='relative w-full px-4 sm:px-6 md:px-[12%] py-20 bg-[url("/footer-bg-color.png")] bg-no-repeat bg-center bg-[length:90%_auto] dark:bg-gray-900 transition-colors'
+      className='relative w-full px-4 sm:px-6 md:px-[12%] py-20 bg-[url("/footer-bg-color.png")] bg-no-repeat bg-center bg-[length:90%_auto] transition-colors'
     >
-      {/* Toast Message */}
       {showToast && (
         <div
           className={`fixed bottom-6 right-6 text-white py-2 px-6 rounded-lg shadow-lg z-50 ${getToastColor()}`}
@@ -104,21 +103,17 @@ const Contact = () => {
         </div>
       )}
 
-      {/* Title + Underline */}
-      {/* Title (sans underline) */}
       <div className="text-center w-max mx-auto mb-4">
-        <h2 className="text-4xl sm:text-6xl lg:text-[56px] font-extrabold leading-tight font-ovo text-gray-900 dark:text-pink-400  mt-8">
+        <h2 className="text-4xl sm:text-6xl lg:text-[56px] font-extrabold leading-tight font-ovo text-gray-900 mt-8">
           Get in touch
         </h2>
       </div>
 
-      {/* Subtext */}
-      <p className="text-center max-w-2xl mx-auto mt-2 mb-12 text-gray-700 dark:text-gray-300 font-ovo text-lg">
+      <p className="text-center max-w-2xl mx-auto mt-2 mb-12 text-gray-700 font-ovo text-lg">
         Have a question or want to work together? Drop me a message — I'd love
         to hear from you!
       </p>
 
-      {/* Form */}
       <form onSubmit={onSubmit} noValidate className="max-w-3xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -129,7 +124,7 @@ const Contact = () => {
               value={formValues.name}
               onChange={handleChange}
               onFocus={handleFocus}
-              className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white/60 dark:bg-gray-800 text-gray-800 dark:text-white focus:ring-2 focus:ring-pink-400 outline-none transition-all"
+              className="w-full p-3 rounded-md border border-gray-300 bg-white/60 text-gray-800 focus:ring-2 focus:ring-pink-400 outline-none transition-all"
             />
             {errors.name && (
               <p className="text-sm text-red-500 mt-1">{errors.name}</p>
@@ -143,9 +138,7 @@ const Contact = () => {
               value={formValues.email}
               onChange={handleChange}
               onFocus={handleFocus}
-              className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white/60 dark:bg-gray-800 text-gray-800 dark:text-white focus:ring-2 focus:ring-pink-400 outline-none transition-all"
-              // Pour éviter le tooltip natif du navigateur sur email invalide, on peut enlever "required" et gérer en JS
-              // required={false}
+              className="w-full p-3 rounded-md border border-gray-300 bg-white/60 text-gray-800 focus:ring-2 focus:ring-pink-400 outline-none transition-all"
             />
             {errors.email && (
               <p className="text-sm text-red-500 mt-1">{errors.email}</p>
@@ -161,7 +154,7 @@ const Contact = () => {
             value={formValues.message}
             onChange={handleChange}
             onFocus={handleFocus}
-            className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white/60 dark:bg-gray-800 text-gray-800 dark:text-white focus:ring-2 focus:ring-pink-400 outline-none transition-all"
+            className="w-full p-3 rounded-md border border-gray-300 bg-white/60 text-gray-800 focus:ring-2 focus:ring-pink-400 outline-none transition-all"
           ></textarea>
           {errors.message && (
             <p className="text-sm text-red-500 mt-1">{errors.message}</p>

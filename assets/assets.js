@@ -84,24 +84,26 @@ export const assets = {
 // Données projets
 export const workData = [
   {
-    title: "project 1 ",
-    description: "project 1",
-    bgImage: "/work-1.png",
+    title: "Project 1",
+    description: "This is project 1",
+    projectImage: "/work-1.png",
+
+    githubUrl: "https://github.com/user/project1",
   },
   {
-    title: "project 2",
-    description: "project 2",
-    bgImage: "/work-2.png",
+    title: "Project 2",
+    description: "This is project 2",
+    projectImage: "/work-2.png",
+
+    githubUrl: "https://github.com/user/project2",
   },
   {
-    title: "project 3",
-    description: "project 3",
-    bgImage: "/work-3.png",
-  },
-  {
-    title: "project 4",
-    description: "project 4",
-    bgImage: "/work-4.png",
+    title: "Project 4",
+    description:
+      "project 4 project 4project 4project 4project 4project 4project 4project 4",
+    projectImage: "/work-4.png ",
+
+    githubUrl: "https://github.com/user/project4",
   },
 ];
 
@@ -159,7 +161,8 @@ export const skillsData = [
 export const infoList = [
   {
     title: "Education",
-    description: "TEK-UP University\nSoftware Engineering\n2023 – Present",
+    description:
+      "Software Engineering student at TEK-UP University\n2023 – Present",
   },
   {
     title: "Certifications",

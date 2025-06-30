@@ -1,66 +1,81 @@
 import React from "react";
 import Image from "next/image";
-import { assets, workData } from "@/assets/assets";
+import { workData, assets } from "@/assets/assets";
+import { FaGithub } from "react-icons/fa";
 
 const Projects = () => {
   return (
     <section
       id="work"
-      className="w-full px-[12%] py-10 scroll-mt-20 bg-white dark:bg-[#0b0b17] transition-colors duration-500"
+      className="w-full px-[12%] py-8 scroll-mt-20 bg-white transition-colors duration-500"
     >
-      <h2 className="text-center text-4xl md:text-3xl   sm:text-6xl lg:text-[50px] font-extrabold leading-tight font-ovo text-gray-900font-ovo text-gray-800 dark:text-pink-300 ">
+      <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight font-ovo text-gray-900 mb-4">
         Projects
       </h2>
 
-      <p className="text-center max-w-3xl mx-auto mb-5 mt-5 font-ovo text-gray-600 dark:text-gray-300">
+      <p className="text-center max-w-3xl mx-auto mb-6 mt-1 font-ovo text-gray-600 text-base">
         Here are some of the projects I've worked on, showcasing my skills in
         various technologies and problem domains.
       </p>
 
-      <div className="grid grid-auto-columns my-10 gap-6">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {workData.map((project, index) => (
           <div
             key={index}
-            className="relative aspect-square rounded-lg bg-cover bg-center cursor-pointer group shadow-md hover:shadow-lg transition-shadow duration-300"
-            style={{ backgroundImage: `url(${project.bgImage})` }}
+            className="bg-white rounded-xl shadow-lg flex flex-col transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl hover:bg-[#fcf4ff]"
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 w-10/12 rounded-md bg-white/90 dark:bg-gray-900/90 py-4 px-6 flex items-center justify-between shadow-lg group-hover:translate-y-[-6px] transition-transform duration-300">
-              <div>
-                <h3 className="font-semibold text-gray-900 dark:text-pink-300">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
-                  {project.description}
-                </p>
-              </div>
-              <div className="border border-black rounded-full w-10 h-10 flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-400 transition-colors duration-300">
-                <Image
-                  src={assets.send_icon}
-                  alt="send icon"
-                  className="w-5 h-5"
-                />
-              </div>
+            {/* Image réduite */}
+            <div className="w-full h-44 rounded-t-xl overflow-hidden border-b border-gray-200 relative">
+              <Image
+                src={project.projectImage}
+                alt={project.title}
+                fill
+                style={{ objectFit: "cover" }}
+                priority={true}
+              />
+            </div>
+
+            {/* Contenu compact */}
+            <div className="p-3 flex flex-col flex-grow">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">
+                {project.title}
+              </h3>
+
+              <p className="text-gray-700 mb-3 text-sm flex-grow leading-relaxed">
+                {project.description}
+              </p>
+
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center hover:bg-pink-500 gap-2 self-start bg-gray-900 text-white px-4 py-1.5 rounded-md text-xs font-medium shadow-md transition"
+              >
+                <FaGithub className="h-4 w-4" />
+                GitHub
+              </a>
             </div>
           </div>
         ))}
       </div>
 
-      <a
-        href="https://github.com/yamina169"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mx-auto flex w-max items-center justify-center gap-2 rounded-full border border-gray-700 bg-transparent py-3 px-10 text-gray-700 transition-colors duration-500 hover:bg-gray-200 dark:text-pink-300 dark:hover:bg-pink-900"
-      >
-        Show more
-        <Image
-          src={assets.right_arrow_bold}
-          alt="Right arrow"
-          width={16}
-          height={16}
-          className="ml-1"
-        />
-      </a>
+      <div className="flex justify-center mt-8">
+        <a
+          href="https://github.com/yamina169"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-gray-700 bg-transparent px-6 py-1.5 text-gray-700 font-semibold hover:bg-gray-100 transition"
+        >
+          Show more
+          <Image
+            src={assets.right_arrow_bold}
+            alt="Right arrow"
+            width={18}
+            height={18}
+            className="ml-1"
+          />
+        </a>
+      </div>
     </section>
   );
 };

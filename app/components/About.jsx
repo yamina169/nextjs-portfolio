@@ -15,14 +15,14 @@ const About = () => {
         return (
           <FontAwesomeIcon
             icon={faGraduationCap}
-            className="w-7 h-7 mt-3 text-gray-700 dark:text-pink-300"
+            className="w-7 h-7 mt-3 text-gray-700"
           />
         );
       case "Certifications":
         return (
           <FontAwesomeIcon
             icon={faCertificate}
-            className="w-7 h-7 mt-3 text-gray-700 dark:text-pink-300"
+            className="w-7 h-7 mt-3 text-gray-700"
           />
         );
       default:
@@ -33,9 +33,9 @@ const About = () => {
   return (
     <div
       id="about"
-      className="pt-10 w-full px-4 sm:px-8 md:px-16 lg:px-[12%] py-10 scroll-mt-20 "
+      className="pt-10 w-full px-4 sm:px-8 md:px-16 lg:px-[12%] py-10 scroll-mt-20"
     >
-      <h2 className="text-center  text-4xl sm:text-6xl lg:text-[56px] font-extrabold leading-tight font-ovo text-gray-900 mb-10">
+      <h2 className="text-center text-4xl sm:text-6xl lg:text-[56px] font-extrabold leading-tight font-ovo text-gray-900 mb-10">
         About me
       </h2>
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -58,23 +58,19 @@ const About = () => {
             {infoList.map(({ title, description }, index) => (
               <li
                 key={index}
-                className="bg-gray-50 dark:bg-zinc-900 rounded-xl p-6 hover:bg-[#fcf4ff] dark:hover:bg-pink-950 cursor-pointer hover:-translate-y-1 duration-500 transition shadow-md"
+                className="bg-gray-50 rounded-xl p-6  hover:bg-[#fcf4ff] cursor-pointer hover:-translate-y-1 duration-500 transition shadow-md"
               >
                 {renderIcon(title)}
-                <h3 className="my-4 font-semibold text-gray-700 dark:text-pink-200">
-                  {title}
-                </h3>
+                <h3 className="my-4 font-semibold text-gray-700">{title}</h3>
 
                 {title === "Certifications" ? (
-                  <ul className="list-disc list-inside text-gray-600 dark:text-pink-100 text-sm space-y-1">
+                  <ul className="list-disc list-inside text-gray-600 text-sm space-y-1">
                     {description.split("\n").map((line, idx) => (
                       <li key={idx}>{line}</li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-gray-600 dark:text-pink-100 text-sm">
-                    {description}
-                  </p>
+                  <p className="text-gray-600 text-sm">{description}</p>
                 )}
               </li>
             ))}

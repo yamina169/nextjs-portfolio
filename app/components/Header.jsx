@@ -22,7 +22,7 @@ const TypewriterText = ({ text, className }) => {
         clearInterval(interval);
         setDone(true);
       }
-    }, 50); // vitesse écriture
+    }, 50);
 
     return () => clearInterval(interval);
   }, [text, controls]);
@@ -37,7 +37,7 @@ const TypewriterText = ({ text, className }) => {
       {text}
       {!done && (
         <motion.span
-          className="absolute top-0 right-0 h-full w-[2px] bg-pink-600 dark:bg-pink-400"
+          className="absolute top-0 right-0 h-full w-[2px] bg-pink-600"
           animate={{ opacity: [1, 0, 1] }}
           transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -74,11 +74,11 @@ const Header = () => {
           <TypewriterText text="Yamina Rezgui" />
         </h1>
 
-        <h2 className="text-xl md:text-xl text-gray-500 dark:text-gray-300 mb-6 font-medium">
+        <h2 className="text-xl md:text-xl text-gray-500 mb-6 font-medium">
           <TypewriterText text="Full-Stack Web Developer & Software Engineering Student" />
         </h2>
 
-        <p className="mb-10 max-w-md text-gray-700 dark:text-gray-400 leading-relaxed">
+        <p className="mb-10 max-w-md text-gray-700 leading-relaxed">
           Building elegant solutions to complex problems with modern
           technologies.
         </p>
@@ -92,31 +92,32 @@ const Header = () => {
           </a>
 
           <a
-            href="#work"
-            className="px-8 py-3 border border-gray-400 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition text-gray-800 dark:text-gray-200"
+            href="https://flowcv.com/resume/rwa9t29ohoiv"
+            download
+            className="px-8 py-3 border border-gray-400 rounded-full hover:bg-gray-200 transition text-gray-800 flex items-center gap-2"
           >
-            View Projects
+            View Resume
           </a>
         </div>
       </div>
 
-      {/* Partie droite - Code (sans animation framer motion) */}
-      <div className="w-full md:w-5/12 border border-gray-300 dark:border-gray-600 rounded-xl cursor-2ointer transition duration-500 hover:shadow-xl hover:scale-105 transform">
-        <div className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-xl">
+      {/* Partie droite - Code */}
+      <div className="w-full md:w-5/12 border border-gray-300 rounded-xl cursor-pointer transition duration-500 hover:shadow-xl hover:scale-105 transform">
+        <div className="bg-white rounded-xl overflow-hidden shadow-xl">
           {/* Barre de titre */}
-          <div className="flex items-center bg-gray-100 dark:bg-gray-800 px-5 py-3">
+          <div className="flex items-center bg-gray-100 px-5 py-3">
             <div className="flex space-x-2">
               <span className="w-4 h-4 rounded-full bg-[#ff5f56]" />
               <span className="w-4 h-4 rounded-full bg-[#ffbd2e]" />
               <span className="w-4 h-4 rounded-full bg-[#27c93f]" />
             </div>
-            <span className="ml-6 text-gray-500 dark:text-gray-400 text-sm font-mono select-none">
+            <span className="ml-6 text-gray-500 text-sm font-mono select-none">
               developer.js
             </span>
           </div>
 
           {/* Code */}
-          <pre className="p-6 font-mono text-sm text-gray-800 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
+          <pre className="p-6 font-mono text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">
             <code>
               <span className="text-gray-500">// Software Engineer</span>
               {"\n"}
