@@ -7,7 +7,7 @@ const Projects = () => {
   return (
     <section
       id="work"
-      className="w-full px-[12%] py-8 scroll-mt-20 bg-white transition-colors duration-500"
+      className="w-full px-4 sm:px-6 md:px-[12%] py-8 scroll-mt-20 bg-white transition-colors duration-500"
     >
       <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight font-ovo text-gray-900 mb-4">
         Projects

@@ -103,18 +103,18 @@ const Contact = () => {
         </div>
       )}
 
-      <div className="text-center w-max mx-auto mb-4">
-        <h2 className="text-4xl sm:text-6xl lg:text-[56px] font-extrabold leading-tight font-ovo text-gray-900 mt-8">
+      <div className="text-center w-full max-w-4xl mx-auto mb-4 px-2">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight font-ovo text-gray-900 mt-8">
           Get in touch
         </h2>
       </div>
 
-      <p className="text-center max-w-2xl mx-auto mt-2 mb-12 text-gray-700 font-ovo text-lg">
+      <p className="text-center max-w-2xl mx-auto mt-2 mb-12 text-gray-700 font-ovo text-base sm:text-lg">
         Have a question or want to work together? Drop me a message — I'd love
         to hear from you!
       </p>
 
-      <form onSubmit={onSubmit} noValidate className="max-w-3xl mx-auto">
+      <form onSubmit={onSubmit} noValidate className="max-w-3xl mx-auto px-2">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <input

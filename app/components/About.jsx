@@ -43,18 +43,18 @@ const About = () => {
           <Image
             src={assets.user_image}
             alt="user"
-            className="w-full h-auto rounded-3xl object-cover"
             priority
+            className="w-full h-full rounded-3xl object-cover overflow-hidden"
           />
         </div>
-        <div className="flex-1 max-w-full lg:max-w-none">
-          <p className="mb-8 max-w-full sm:max-w-xl md:max-w-2xl font-ovo text-base sm:text-lg leading-relaxed">
+        <div className="flex-1 max-w-full lg:max-w-none min-w-0">
+          <p className="mb-8 max-w-full sm:max-w-xl md:max-w-2xl font-ovo text-sm sm:text-base leading-relaxed">
             Software engineering student with a passion for creating innovative
             solutions. Specializing in full-stack development, I combine
             technical expertise with creative problem-solving to build
             user-centric applications.
           </p>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6 max-w-full sm:max-w-3xl">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6 max-w-full sm:max-w-2xl">
             {infoList.map(({ title, description }, index) => (
               <li
                 key={index}

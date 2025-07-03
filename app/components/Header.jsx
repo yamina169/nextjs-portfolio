@@ -48,7 +48,7 @@ const TypewriterText = ({ text, className }) => {
 
 const Header = () => {
   return (
-    <section className="pt-24 w-11/12 max-w-6xl mx-auto min-h-screen flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
+    <section className="pt-24 w-11/12 max-w-6xl mx-auto min-h-screen flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20 px-4 sm:px-6">
       {/* Partie gauche - Texte */}
       <div className="w-full md:w-1/2 text-left">
         <h3 className="flex items-center gap-3 text-2xl md:text-3xl mb-3 font-ovo text-pink-600">
@@ -58,35 +58,34 @@ const Header = () => {
             alt="Waving hand"
             width={28}
             height={28}
-            animate={{
-              rotate: [0, 15, -10, 15, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            animate={{ rotate: [0, 15, -10, 15, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             style={{ originX: "70%", originY: "70%" }}
           />
         </h3>
 
-        <h1 className="text-4xl sm:text-6xl lg:text-[56px] font-extrabold leading-tight">
+        <h1 className="text-3xl sm:text-5xl lg:text-[56px] font-extrabold leading-tight">
           <TypewriterText text="Yamina Rezgui" />
         </h1>
 
-        <h2 className="text-xl md:text-xl text-gray-500 mb-6 font-medium">
-          <TypewriterText text="Full-Stack Web Developer & Software Engineering Student" />
+        <h2 className="text-base sm:text-lg md:text-xl text-gray-500 mb-6 font-medium">
+          <span className="block sm:inline">Full-Stack Web Developer</span>
+          <span className="block sm:inline">
+            & Software Engineering Student
+          </span>
         </h2>
 
-        <p className="mb-10 max-w-md text-gray-700 leading-relaxed">
-          Building elegant solutions to complex problems with modern
-          technologies.
+        <p className="mb-10 max-w-md text-gray-700 leading-relaxed text-sm sm:text-base">
+          <span className="block sm:inline">Building elegant solutions</span>
+          <span className="block sm:inline">
+            to complex problems with modern technologies.
+          </span>
         </p>
 
         <div className="flex flex-wrap gap-6">
           <a
             href="#contact"
-            className="px-8 py-3 bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transition"
+            className="px-6 py-2 sm:px-8 sm:py-3 bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transition text-sm sm:text-base"
           >
             Contact Me
           </a>
@@ -94,7 +93,7 @@ const Header = () => {
           <a
             href="https://flowcv.com/resume/rwa9t29ohoiv"
             download
-            className="px-8 py-3 border border-gray-400 rounded-full hover:bg-gray-200 transition text-gray-800 flex items-center gap-2"
+            className="px-6 py-2 sm:px-8 sm:py-3 border border-gray-400 rounded-full hover:bg-gray-200 transition text-gray-800 flex items-center gap-2 text-sm sm:text-base"
           >
             View Resume
           </a>
@@ -125,16 +124,16 @@ const Header = () => {
               <span className="text-[#4ec9b0]">developer</span> = {"{"}
               {"\n"}
               <span className="ml-6">
-                <span className="text-[#9cdcfe]">name</span>:{" "}
+                <span className="text-[#9cdcfe]">name</span>: {""}
                 <span className="text-[#ce9178]">'Yamina Rezgui'</span>,{"\n"}
                 <span className="text-[#9cdcfe]">skills</span>: [
-                <span className="text-[#ce9178]">'React'</span>,{" "}
-                <span className="text-[#ce9178]">'Next.js'</span>,{" "}
+                <span className="text-[#ce9178]">'React'</span>, {""}
+                <span className="text-[#ce9178]">'Next.js'</span>, {""}
                 <span className="text-[#ce9178]">'Node.js'</span>],{"\n"}
                 <span className="text-[#9cdcfe]">focuses</span>: [
-                <span className="text-[#ce9178]">'Full-Stack'</span>,{" "}
+                <span className="text-[#ce9178]">'Full-Stack'</span>, {""}
                 <span className="text-[#ce9178]">'UI/UX'</span>],{"\n"}
-                <span className="text-[#9cdcfe]">learning</span>:{" "}
+                <span className="text-[#9cdcfe]">learning</span>: {""}
                 <span className="text-[#ce9178]">'Always'</span>
               </span>
               {"\n"}
