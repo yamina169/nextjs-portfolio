@@ -47,9 +47,9 @@ const Navbar = () => {
           <Image
             src={assets.logo}
             alt="Logo"
-            width={140}
+            width={120}
             height={60}
-            className="w-30 sm:w-25 cursor-pointer"
+            className=" cursor-pointer"
           />
         </a>
 
@@ -62,12 +62,12 @@ const Navbar = () => {
           >
             {navItems.map((item, index) => (
               <li key={index}>
-                <Link
+                <a
                   href={item.href}
                   className="hover:text-red-500 transition-colors font-ovo"
                 >
                   {item.name}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>

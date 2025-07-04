@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 
 const Contact = () => {
   const [result, setResult] = useState("");
@@ -166,13 +167,7 @@ const Contact = () => {
           className="mt-8 py-3 px-8 flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-medium rounded-full transition-all mx-auto"
         >
           Submit now
-          <Image
-            src={assets.right_arrow_white}
-            alt="arrow"
-            width={16}
-            height={16}
-            className="w-4"
-          />
+          <PaperAirplaneIcon className="w-5 h-5 " />
         </button>
       </form>
     </section>

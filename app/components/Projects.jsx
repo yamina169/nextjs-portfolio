@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { workData, assets } from "@/assets/assets";
 import { FaGithub } from "react-icons/fa";
+import { ArrowRightIcon } from "@heroicons/react/24/solid"; // <== Ajoute cette ligne en haut avec les autres imports
 
 const Projects = () => {
   return (
@@ -67,13 +68,7 @@ const Projects = () => {
           className="inline-flex items-center gap-2 rounded-full border border-gray-700 bg-transparent px-6 py-1.5 text-gray-700 font-semibold hover:bg-gray-100 transition"
         >
           Show more
-          <Image
-            src={assets.right_arrow_bold}
-            alt="Right arrow"
-            width={18}
-            height={18}
-            className="ml-1"
-          />
+          <ArrowRightIcon className="w-4 h-4" />
         </a>
       </div>
     </section>

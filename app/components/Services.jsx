@@ -23,11 +23,7 @@ const Services = () => {
             className="group bg-white hover:bg-[#fcf4ff] rounded-lg border border-gray-200 px-2.5 py-3 shadow-sm hover:shadow-md hover:-translate-y-1 transform transition duration-300 flex flex-col items-center text-center"
           >
             <div className="w-9 h-9 flex items-center justify-center rounded-full mb-1.5">
-              {title === "MySQL" ? (
-                <Icon color={color} size={40} />
-              ) : (
-                <Icon color={color} size={30} />
-              )}
+              <Icon color={color} size={60} />
             </div>
             <h3 className="text-xs sm:text-sm font-medium text-gray-800">
               {title}
